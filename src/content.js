@@ -1,4 +1,4 @@
-function setup() {
+function setup(attempts) {
   const DEBOUNCE_INTERVAL_MS = 200;
 
   let data = {};
@@ -75,7 +75,11 @@ function setup() {
   // Add the button to the page.
 
   if (!nowPlaying) {
-    console.warn("Spotify Now Playing: current song element not found on page. Exiting.");
+    if (attempts >= 3) {
+      console.warn("Spotify Now Playing: current song element not found on page. Exiting after multiple attempts.");
+    } else {
+      setTimeout(() => setup(attempts + 1), 1000);
+    }
     return;
   }
 
@@ -104,6 +108,6 @@ function setup() {
 
 document.addEventListener('readystatechange', () => {
   if (document.readyState === 'complete') {
-    setTimeout(() => setup(), 1000);
+    setTimeout(() => setup(0), 1000);
   }
 });

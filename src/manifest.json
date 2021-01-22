@@ -1,7 +1,7 @@
 {
   "name": "Spotify Web Now Playing",
   "description": "Export Spotify Web “now playing” song to a local file",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "manifest_version": 2,
   "icons": {
     "16": "icon-16.png",
