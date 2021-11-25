@@ -21,11 +21,11 @@ function setup(attempts) {
   }
 
   function getSongElement() {
-    return document.querySelector('[data-testid=nowplaying-track-link]');
+    return document.querySelector('[data-testid="context-item-link"]');
   }
 
   function getArtistElement() {
-    return document.querySelector('span > a[href^="/artist"]');
+    return document.querySelector('[data-testid="context-item-info-subtitles"] span > a[data-testid="context-item-info-artist"][href^="/artist"]');
   }
 
   function getCover() {
@@ -63,7 +63,7 @@ function setup(attempts) {
     debounceTimer = setTimeout(async () => { await saveNowPlaying() }, DEBOUNCE_INTERVAL_MS);
   }
 
-  const nowPlaying = document.querySelector("div.now-playing[role=contentinfo]");
+  const nowPlaying = document.querySelector('[data-testid="now-playing-widget"]');
 
   async function startObserving() {
     await observeChanges(nowPlaying, () => { updateNowPlaying() });
