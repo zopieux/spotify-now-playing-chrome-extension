@@ -36,6 +36,10 @@ function setup(attempts) {
     return getSongElement().innerText;
   }
 
+  function getArtist() {
+    return getArtistElement().join(', ');
+  }
+
   async function saveNowPlaying() {
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     const writable = await writableHandle.createWritable();
