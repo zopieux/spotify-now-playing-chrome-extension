@@ -1,5 +1,7 @@
 # Spotify Web "Now playing"
 
+> Update: You need to enable "File System Access API" (`#file-system-access-api`) in the Chrome setting (here using Brave, so in `brave://flags`)
+
 Install from the [Chrome Web Store](https://chrome.google.com/webstore/detail/khdkihdjbcgglfdjpbamhoahejlddkdj).
 
 This Chrome extension keeps a JSON file on the local filesystem in sync with the current song on [Spotify Web](https://open.spotify.com).
