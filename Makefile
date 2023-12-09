@@ -6,7 +6,7 @@ ZIP =  spotify-now-playing.zip
 all: $(ZIP)
 
 src/icon-%.png: logo.svg
-	inkscape -w $* -h $* -o $@ $<
+	convert $< -resize $*x$* $@
 
 $(ZIP): $(SRCS) $(ICONS)
 	rm -f $@
