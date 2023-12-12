@@ -17,7 +17,7 @@ function setup(attempts) {
   }
 
   function getCoverElement() {
-    return document.querySelector('.cover-art-image');
+    return document.querySelector('[data-testid=cover-art-image]');
   }
 
   function getSongElement() {
@@ -25,7 +25,7 @@ function setup(attempts) {
   }
 
   function getArtistElement() {
-    return document.querySelector('[data-testid="context-item-info-subtitles"] span > a[data-testid="context-item-info-artist"][href^="/artist"]');
+    return Array.from(document.querySelector('[data-testid="context-item-info-subtitles"]').querySelectorAll('a[data-testid="context-item-info-artist"]')).map(artistLink => artistLink.textContent.trim());
   }
 
   function getCover() {
@@ -37,7 +37,7 @@ function setup(attempts) {
   }
 
   function getArtist() {
-    return getArtistElement().innerText;
+    return getArtistElement().join(', ');
   }
 
   async function saveNowPlaying() {
